@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horoscope_app/HoroscopeModel.dart';
 import 'package:horoscope_app/bigWidget.dart';
+import 'package:horoscope_app/constanst.dart';
 import 'package:horoscope_app/smallWidget.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,18 +13,30 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<HoroscopeModel> xxy = <HoroscopeModel>[
-    HoroscopeModel("Koç", "21 Mart - 20 Nisan", "aries.png"),
-    HoroscopeModel("Boğa", "21 Nisan - 20 Mayıs", "taurus.png"),
-    HoroscopeModel("İkizler", "21 Mayıs - 21 Haziran", "gemini.png"),
-    HoroscopeModel("Yengeç", "22 Haziran - 22 Temmuz", "cancer.png"),
-    HoroscopeModel("Aslan", "23 Temmuz - 22 Ağustos", "leo.png"),
-    HoroscopeModel("Başak", "23 Ağustos - 22 Eylül", "virgo.png"),
-    HoroscopeModel("Terazi", "23 Eylül - 23 Ekim", "libra.png"),
-    HoroscopeModel("Akrep", "24 Ekim - 22 Kasım", "scorpio.png"),
-    HoroscopeModel("Yay", "23 Kasım - 21 Aralık", "sagittarius.png"),
-    HoroscopeModel("Oğlak", "22 Aralık - 20 Ocak", "capricorn.png"),
-    HoroscopeModel("Kova", "21 Ocak - 18 Şubat", "aquarius.png"),
-    HoroscopeModel("Balık", "19 Şubat - 20 Mart", "pisces.png"),
+    HoroscopeModel("KOÇ", "21 Mart - 20 Nisan", "aries.png", Color(0xffff7c48),
+        Color(0xffff415b)),
+    HoroscopeModel("BOĞA", "21 Nisan - 20 Mayıs", "taurus.png",
+        Color(0xffc1da4b), Color(0xff83b904)),
+    HoroscopeModel("İKİZLER", "21 Mayıs - 21 Haziran", "gemini.png",
+        Color(0xffffaa00), Color(0xffec8500)),
+    HoroscopeModel("YENGEÇ", "22 Haziran - 22 Temmuz", "cancer.png",
+        Color(0xff2fbeee), Color(0xff4893ff)),
+    HoroscopeModel("ASLAN", "23 Temmuz - 22 Ağustos", "leo.png",
+        Color(0xffff7c48), Color(0xffff415b)),
+    HoroscopeModel("BAŞAK", "23 Ağustos - 22 Eylül", "virgo.png",
+        Color(0xffc1da4b), Color(0xff83b904)),
+    HoroscopeModel("TERAZİ", "23 Eylül - 23 Ekim", "libra.png",
+        Color(0xffffaa00), Color(0xffec8500)),
+    HoroscopeModel("AKREP", "24 Ekim - 22 Kasım", "scorpio.png",
+        Color(0xff2fbeee), Color(0xff4893ff)),
+    HoroscopeModel("YAY", "23 Kasım - 21 Aralık", "sagittarius.png",
+        Color(0xffff7c48), Color(0xffff415b)),
+    HoroscopeModel("OĞLAK", "22 Aralık - 20 Ocak", "capricorn.png",
+        Color(0xffc1da4b), Color(0xff83b904)),
+    HoroscopeModel("KOVA", "21 Ocak - 18 Şubat", "aquarius.png",
+        Color(0xffffaa00), Color(0xffec8500)),
+    HoroscopeModel("BALIK", "19 Şubat - 20 Mart", "pisces.png",
+        Color(0xff2fbeee), Color(0xff4893ff)),
   ];
 
   // var b1 = HoroscopeModel("Koç", "21 Mart - 20 Nisan", "aries.png");
@@ -60,8 +73,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text("efe"),
-        backgroundColor: Colors.transparent,
+        title: Text("Burç Uygulaması"),
+        backgroundColor: Color(0xff152d4f),
       ),
       body: SafeArea(
         child: Column(
@@ -71,19 +84,19 @@ class _HomePageState extends State<HomePage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/anaEkran.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text("BURÇLAR")
+                  // Container(
+                  //   width: 100,
+                  //   height: 100,
+                  //   decoration: BoxDecoration(
+                  //     image: DecorationImage(
+                  //       image: AssetImage('assets/images/anaEkran.jpg'),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //     shape: BoxShape.circle,
+                  //   ),
+                  // ),
+                  // SizedBox(height: 10.0),
+                  // Text("BURÇLAR")
                 ],
               ),
             ),
@@ -101,20 +114,25 @@ class _HomePageState extends State<HomePage> {
                           print("Tıklandı");
                         },
                         child: SmallWidgetCard(
-                            colour: Color(0XFFF5EEDC),
+                            colour1: item.color1,
+                            colour2: item.color2,
                             cardChild: Column(
                               children: [
                                 SizedBox(
-                                  height: 20,
+                                  height: 10,
                                 ),
                                 Container(
                                   width: 50,
                                   height: 50,
                                   decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(50.0)),
+                                    border: Border.all(
+                                        width: 3, color: Colors.white),
                                     image: DecorationImage(
                                       image: AssetImage(
                                           "assets/images/${item.horoImage}"),
-                                      fit: BoxFit.fill,
+                                      fit: BoxFit.cover,
                                     ),
                                     shape: BoxShape.rectangle,
                                   ),
@@ -122,22 +140,20 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text(
-                                  item.HoroscopeName,
-                                  style: TextStyle(color: Colors.black),
-                                ),
+                                Text(item.HoroscopeName,
+                                    style: kLargeTextStyle),
                                 SizedBox(
                                   height: 20,
                                 ),
                                 Text(
                                   item.HoroscopeDate,
-                                  style: TextStyle(color: Colors.black),
-                                )
+                                  style: kSmallTextStyle,
+                                ),
                               ],
                             )),
                       ))
                   .toList(),
-            ))
+            )),
           ],
         ),
       ),

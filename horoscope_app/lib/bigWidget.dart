@@ -15,8 +15,19 @@ class BigWidgetCard extends StatelessWidget {
       height: 200.0,
       decoration: BoxDecoration(
           color: colour,
-          borderRadius: BorderRadius.circular(10.0),
-          border: Border.all(color: Colors.blueAccent)),
+          borderRadius: BorderRadius.circular(30.0),
+          border: Border.all(color: Colors.blueAccent),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+          image: DecorationImage(
+              image: AssetImage("assets/images/widgetImage.jpg"),
+              fit: BoxFit.fill)),
     );
   }
 }
