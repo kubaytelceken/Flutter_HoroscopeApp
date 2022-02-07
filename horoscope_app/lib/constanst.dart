@@ -6,6 +6,17 @@ const kSmallTextStyle = TextStyle(
 const kLargeTextStyle = TextStyle(
     fontSize: 20.0, color: Colors.white, fontFamily: "SupermercadoOne");
 
+const kDetailLargeTextStyle = TextStyle(
+    fontSize: 15.0,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontFamily: "SupermercadoOne");
+const kDetailSmallTextStyle = TextStyle(
+    fontSize: 15.0,
+    color: Colors.white,
+    fontWeight: FontWeight.normal,
+    fontFamily: "SupermercadoOne");
+
 // const kbottomContainerHeight = 80.0;
 // const kactiveCardColor = Color(0XFF1D1E33);
 // const kinactiveCardColor = Color(0XFF111328);

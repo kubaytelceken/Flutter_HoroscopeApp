@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:horoscope_app/HoroscopeModel.dart';
 import 'package:horoscope_app/bigWidget.dart';
 import 'package:horoscope_app/constanst.dart';
+import 'package:horoscope_app/horoscopeDetail.dart';
+import 'package:horoscope_app/horoscopeGetDetailModel.dart';
 import 'package:horoscope_app/smallWidget.dart';
 
 class HomePage extends StatefulWidget {
@@ -111,7 +113,34 @@ class _HomePageState extends State<HomePage> {
               children: xxy
                   .map((item) => GestureDetector(
                         onTap: () {
-                          print("Tıklandı");
+                          HoroscopeGetDetailModel calc =
+                              HoroscopeGetDetailModel(
+                                  horoscopeName: item.HoroscopeName);
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HoroscopeDetailPage(
+                                        horoscopeName: item.HoroscopeName,
+                                        horoscopeDate: item.HoroscopeDate,
+                                        horoscopeImage: item.horoImage,
+                                        color1: item.color1,
+                                        color2: item.color2,
+                                        Element: calc.getElement(),
+                                        Nitelik: calc.getNitelik(),
+                                        Gezegen: calc.getGezegen(),
+                                        Renk: calc.getRenk(),
+                                        Tas: calc.getTas(),
+                                        Gun: calc.getGun(),
+                                        Ozellik: calc.getOzellike(),
+                                        Tarz: calc.getTarz(),
+                                        OlumluYon: calc.getOlumluYon(),
+                                        OlumsuzYon: calc.getOlumsuzYon(),
+                                        AnlasilanBurc:
+                                            calc.getAnlasilanBurclar(),
+                                        AnlasilmayanBurc:
+                                            calc.getAnlasilmayanBurclar(),
+                                      )));
                         },
                         child: SmallWidgetCard(
                             colour1: item.color1,
